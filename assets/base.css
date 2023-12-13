@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 3.5rem;
+  --first-gradient: linear-gradient(90deg, #b44722 0%, #efc0a9 100%);
+  --first-gradient-alt: linear-gradient(90deg, #d65429 0%, #efc0a9 100%);
+  --second-gradient: linear-gradient(90deg, #e07742 0%, #f4bfa4 100%);
+  --second-gradient-alt: linear-gradient(90deg, #e69065 0%, #f4bfa4 100%);
+  --third-gradient: linear-gradient(90deg, #ad421f 0%, #d8845a 100%);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 5rem;
+  }
+}
+
+html {
+  /*为网站开启平滑滚动*/
+  scroll-behavior: smooth;
+}
+
+.writing-vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+/*.dark-mode > body {*/
+/*    background: #0F100F;*/
+/*}*/
+
+@layer base {
+  body::-webkit-scrollbar {
+    @apply dark:bg-base-dark bg-base-body w-2;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
+
+  body {
+    scrollbar-color: #ce603b #f5f5f5;
+    scrollbar-width: thin;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    * {
+      scrollbar-color: #ce603b #1f1f1f;
+    }
+  }
+  .nav {
+    @apply h-[var(--header-height)];
+  }
+
+  .layout-container {
+    @apply min-h-[calc(100vh-var(--header-height))];
+  }
+
+  body {
+    @apply !text-base !bg-base-body dark:!bg-base-body-dark dark:!text-white  !transition-all;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-base-title font-medium dark:text-gray-100;
+  }
+}
