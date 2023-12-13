@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
   }
 
   // 根据id获取用户信息
-  const userInfo = findUserById(user.id)
+  const userInfo = await findUserById(user.id)
 
   return {
     msg: '登录成功',
