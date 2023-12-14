@@ -1,7 +1,7 @@
 import { ofetch } from 'ofetch'
 
 export default function () {
-  // 读取仓库
+  // 读取用户仓库,获取token
   const userStore = useUserStore()
 
   const useApiFetch = ofetch.create({
@@ -11,7 +11,6 @@ export default function () {
     },
     // 相应拦截器,自动处理响应的消息
     async onResponse({ response }) {
-      console.log(response)
       if (response.ok && response._data?.msg) {
         useToast().add({
           title: response._data?.msg,

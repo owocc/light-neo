@@ -6,12 +6,12 @@ export const useUserStore = defineStore('user', {
   }),
 
   getters: {
-    //判断是否登录
+    //判断是否登录,这里只是简单判断token是否存在
     isLogin: (state) => {
       return state.token != null && state.userInfo != null
     },
     money: (state) => {
-      return state.userInfo.money || '0'
+      return state.userInfo?.money || '0'
     },
   },
   actions: {

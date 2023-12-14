@@ -2,11 +2,10 @@
 const props = defineProps({
   label: {
     type: String,
-    required: true,
+    default:'标签'
   },
   value: {
-    type: String,
-    required: true,
+    default: '0',
   },
 })
 </script>

@@ -8,14 +8,23 @@ const menuListContainerClasses = clsx(
   'dark:bg-container-dark dark:border-primary dark:bg-opacity-50 dark:backdrop-blur-lg lg:dark:bg-transparent'
 )
 
-const menu = ref() //获取到菜单div,为他设置隐藏和显示
+const menu = ref()
+//设置菜单隐藏和显示,根据传入的state参数
 const handlerToggleMenu = (state) => {
   gsap.to(menu.value, {
     top: state ? 0 : '-100%',
-    duration: 0.4,
+    duration: 0.3,
+    ease: 'power2.out',
   })
 }
 
+// 监听页面切换,关闭菜单
+const nuxtApp = useNuxtApp()
+nuxtApp.hook('page:start', () => {
+  handlerToggleMenu(false)
+})
+
+// 获取菜单配置
 const { menuConfig } = useMenuConfig()
 </script>
 

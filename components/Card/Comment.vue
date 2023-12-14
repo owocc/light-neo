@@ -1,7 +1,7 @@
 <script setup>
 import { gsap } from 'gsap'
 
-// 评论框的状态
+// 评论框的状态,点击标题会切换评论的展开状态
 const commentBox = ref(null)
 const state = ref(false)
 const handlerSwitchComment = () => {
@@ -13,6 +13,7 @@ const handlerSwitchComment = () => {
   })
 }
 
+// 定义props
 const props = defineProps({
   comment: {
     type: Object,
@@ -23,6 +24,7 @@ const props = defineProps({
   },
 })
 </script>
+
 <template>
   <div>
     <div
@@ -32,11 +34,11 @@ const props = defineProps({
       <!-- 操作按钮,根据状态会变换不同的图标 -->
       <UiButtonIcon :icon="state ? 'i-carbon-subtract' : 'i-carbon-add'" />
       <!-- 评论标题 -->
-      <h3 class="font-normal">来自 {{ props.comment.nickname }} 的评价</h3>
+      <h3 class="font-bold">来自 {{ props.comment.nickname }} 的评价</h3>
     </div>
     <!-- 内容 -->
     <div ref="commentBox" class="h-0 overflow-hidden">
-      <p class="pt-2 pl-10 pr-4 break-all">
+      <p class="pt-2 pl-10 pr-4 break-all text-gray-400">
         {{ props.comment.content }}
       </p>
     </div>

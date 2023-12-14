@@ -15,9 +15,8 @@ const formData = reactive({
 const { registerUser } = useAuth()
 const handlerRegister = async (event) => {
   event.preventDefault()
-
-  const res = await registerUser(formData)
-  console.log(res)
+  await registerUser(formData)
+  navigateTo('/')
 }
 </script>
 <template>

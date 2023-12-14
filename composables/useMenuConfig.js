@@ -1,5 +1,5 @@
 export default function () {
-  const menuConfig = useState('menuConfig', () => [
+  const menuConfig = [
     {
       label: '首页',
       to: '/',
@@ -20,7 +20,7 @@ export default function () {
       to: '/comment',
       key: 'comment',
     },
-  ])
+  ]
   return {
     menuConfig,
   }
