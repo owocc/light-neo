@@ -4,24 +4,27 @@ export const useCartStore = defineStore('cart', {
   }),
   persist: true,
   getters: {
+    // 商品总计金额
     total() {
       return this.carts.reduce((acc, cur) => acc + cur.price * cur.count, 0)
     },
-    num() {
+    // 商品数量
+    prodcutNum() {
       return this.carts.length
     },
   },
 
   actions: {
-    add(item) {
-      const index = this.carts.findIndex((cart) => cart.id === item.id)
+    // 将商品添加到购物车
+    add(product) {
+      const index = this.carts.findIndex((cart) => cart.id === product.id)
       if (index === -1) {
         this.carts.push({
-          name: item.name,
-          description: item.description,
-          id: item.id,
-          price: item.price,
-          image: item.images[0].url || '',
+          name: product.name,
+          desc: product.desc,
+          id: product.id,
+          price: product.price,
+          image: product.headerImage || '',
           count: 1,
         })
       } else {

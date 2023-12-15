@@ -28,6 +28,7 @@ const { formatPrice, limitText } = useUtils()
 // 导入导航函数
 const { gotoProductDetail } = useGoto()
 
+const { add } = useCartStore()
 </script>
 <template>
   <article :class="productCardClasses">
@@ -61,6 +62,7 @@ const { gotoProductDetail } = useGoto()
     <!-- 加入购物车按钮 -->
     <UiButtonIcon
       icon="i-carbon-add"
+      @click="add(props.product)"
       class="absolute right-3 bottom-4 p-1 rounded-lg"
     />
   </article>

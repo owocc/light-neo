@@ -15,11 +15,11 @@ model User {
   password String //密码
   nickname String //用户昵称
   money    Decimal @default(0) //用户余额
-  Order    Order[] //用户订单
-  Cart     Cart[] //用户购物信息
 
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  createAt  DateTime    @default(now())
+  updateAt  DateTime    @updatedAt
+  OrderItem OrderItem[]
+  Order     Order[]
 
   @@index([name])
 }
@@ -38,10 +38,11 @@ model Lamp {
   sales     Int     @default(0) //灯具销量
   recommend Boolean @default(false) //推荐
 
-  createAt  DateTime   @default(now())
-  updateAt  DateTime   @updatedAt
-  Order     Order[]
-  categorys Category[]
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  categorys Category[] //灯具分类
+  orderItem OrderItem[] //订单
 }
 
 // 灯具分类类型
@@ -61,8 +62,8 @@ model Category {
   updateAt DateTime @updatedAt
 }
 
-//订单
-model Order {
+//订单明细
+model OrderItem {
   id Int @id @default(autoincrement())
 
   createAt DateTime @default(now()) // 订单创建时间
@@ -75,30 +76,34 @@ model Order {
   lamp   Lamp @relation(fields: [lampId], references: [id])
   lampId Int
 
-  // 订单所属用户
+  // 订单明细所属用户
   user   User   @relation(fields: [userId], references: [id])
   userId String
 
+  // 所属订单
+  Order   Order? @relation(fields: [orderId], references: [id])
+  orderId Int?
+
+  // 订单收货信息
   address String //订单收获地址
   postal  String //邮政编码
   phone   String //联系电话
   name    String //收货人姓名
-  Cart    Cart?  @relation(fields: [cartId], references: [id])
-  cartId  Int?
 }
 
-// 购物车,用于结算时记录多笔订单
-model Cart {
+// 订单
+model Order {
   id Int @id @default(autoincrement())
 
   createAt DateTime @default(now()) //时间
   updateAt DateTime @updatedAt
 
-  // 购物车所属用户
+  // 订单明细
+  orderItems OrderItem[]
+
+  // 订单所属用户
   user   User   @relation(fields: [userId], references: [id])
   userId String
-
-  order Order[]
 }
 
 // 评论,用于星光评说,因为这部分内容不需要用户登录,所以不需要关联用户
