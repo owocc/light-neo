@@ -1,5 +1,5 @@
 <template>
   <PageContainer>
-    <div>order</div>
+    <UiNavbar title="我的订单"/>
   </PageContainer>
 </template>

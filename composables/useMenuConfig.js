@@ -15,11 +15,6 @@ export default function () {
       to: '/category',
       key: 'category',
     },
-    {
-      label: '星光评说',
-      to: '/comment',
-      key: 'comment',
-    },
   ]
   return {
     menuConfig,

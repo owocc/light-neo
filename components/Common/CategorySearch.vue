@@ -34,11 +34,11 @@ const isSelect = (category) => {
 </script>
 <template>
   <div
-    class="flex flex-col gap-4 border p-4 rounded-md bg-container dark:bg-container-dark dark:border-primary/75"
+    class="flex  w-full flex-col gap-4 border p-4 rounded-md bg-container dark:bg-container-dark dark:border-primary/75"
   >
     <div v-for="item in categoryTypeMap">
       <div class="flex gap-4 flex-col md:flex-row">
-        <h3 class="w-24">{{ item.label }}</h3>
+        <h3 class="w-24">{{ item.label }}:</h3>
         <div class="flex gap-2 flex-wrap flex-1 w-full">
           <UBadge
             :key="item.id"

@@ -14,7 +14,7 @@ export default function () {
       if (response.ok && response._data?.msg) {
         useToast().add({
           title: response._data?.msg,
-          type: 'success',
+          color: 'green',
           timeout: 1000,
         })
       }
@@ -24,7 +24,7 @@ export default function () {
     async onResponseError({ response, error }) {
       useToast().add({
         title: response._data?.statusMessage,
-        type: 'error',
+        color: 'red',
         timeout: 1500,
       })
     },

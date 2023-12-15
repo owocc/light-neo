@@ -4,7 +4,7 @@ import { gsap } from 'gsap/gsap-core'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 gsap.registerPlugin(ScrollToPlugin)
 
-const { state } = useScroll(1300)
+const { state } = useScroll(350)
 const button = ref(null)
 
 // 滚动到顶部
@@ -44,7 +44,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div ref="button" class="fixed bottom-10 right-10">
+  <div ref="button" class="fixed bottom-10 right-10 z-[9999]">
     <UiButtonIcon
       icon="i-carbon-arrow-up"
       @click="handlerToUp"

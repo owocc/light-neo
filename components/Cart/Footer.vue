@@ -1,6 +1,15 @@
 <script setup>
 const cartStore = useCartStore()
 const { formatPrice } = useUtils()
+
+// 跳转到结算页面
+const { gotoPay } = useGoto()
+
+const props = defineProps({
+  hiddenButton: {
+    type: Boolean,
+  },
+})
 </script>
 <template>
   <tfoot
@@ -25,7 +34,13 @@ const { formatPrice } = useUtils()
       </b>
 
       <!-- 购物车结算 -->
-      <UiButton label="结算" icon="i-carbon-certificate-check" />
+      <template v-if="!props.hiddenButton">
+        <UiButton
+          label="结算"
+          icon="i-carbon-certificate-check"
+          @click="gotoPay"
+        />
+      </template>
     </div>
   </tfoot>
 </template>

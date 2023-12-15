@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!token) {
     const error = createError({
       statusCode: 401,
-      statusText: '未登录',
+      statusMessage: '未登录',
     })
     sendError(event, error)
   }

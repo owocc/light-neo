@@ -7,6 +7,8 @@ const props = defineProps({
 })
 
 const { formatPrice } = useUtils()
+
+const { add } = useCartStore()
 </script>
 <template>
   <div
@@ -46,6 +48,7 @@ const { formatPrice } = useUtils()
               class="w-full md:w-auto"
               icon="i-carbon-shopping-cart"
               label="添加到购物车"
+              @click="add(props.lamp)"
             />
           </div>
         </div>

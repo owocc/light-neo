@@ -17,7 +17,7 @@ const props = defineProps({
 <template>
   <Swiper
     class="w-full !pb-16"
-    slides-per-view="auto"
+    slides-per-view="1"
     loop
     space-between="20px"
   >

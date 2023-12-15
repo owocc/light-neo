@@ -41,3 +41,15 @@ export const findUserById = async (id) => {
     createDay: Math.floor((Date.now() - user.createAt) / 1000 / 60 / 60 / 24),
   }
 }
+
+// 扣除用户余额
+export const deductUserMoney = (user, money) => {
+  return prisma.user.update({
+    where: {
+      id: user.id,
+    },
+    data: {
+      money: user.money - money,
+    },
+  })
+}

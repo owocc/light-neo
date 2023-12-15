@@ -1,4 +1,8 @@
 <script setup>
+useSeoMeta({
+  title: '星光灯坊 | 分类搜索',
+})
+
 const route = useRoute()
 const { categorys } = route.query
 

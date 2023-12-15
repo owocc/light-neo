@@ -14,11 +14,11 @@ defineEmits(['update:modelValue'])
 </script>
 <template>
   <div class="mb-4">
-    <label class="block text-gray-600 mb-2">{{ props.label }}</label>
+    <label class="block text-gray-400 mb-2">{{ props.label }}</label>
     <input
       v-bind="$attrs"
       @input="(event) => $emit('update:modelValue', event.target.value)"
-      class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-primary"
+      class="w-full border border-gray-300 dark:border-transparent rounded-md py-2 px-3 focus:outline-none focus:border-primary dark:focus:border-primary"
       autocomplete="off"
     />
   </div>

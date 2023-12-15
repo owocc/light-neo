@@ -30,12 +30,24 @@ export const useCartStore = defineStore('cart', {
       } else {
         this.carts[index].count++
       }
+
+      useToast().add({
+        title: '已将商品加入购物车',
+        color: 'green',
+        timeout: 1500,
+      })
     },
     remove(id) {
       const index = this.carts.findIndex((cart) => cart.id === id)
       if (index !== -1) {
         this.carts.splice(index, 1)
       }
+
+      useToast().add({
+        title: '已将商品移出购物车',
+        color: 'green',
+        timeout: 1500,
+      })
     },
     clear() {
       this.carts = []

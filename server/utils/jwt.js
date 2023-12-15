@@ -20,5 +20,9 @@ export const generateToken = (user) => {
 export const verifyToken = (token) => {
   const { jwtSecret } = useRuntimeConfig()
   // 验证 token
-  return jwt.verify(token, jwtSecret)
+  try {
+    return jwt.verify(token, jwtSecret)
+  } catch (e) {
+    return null
+  }
 }

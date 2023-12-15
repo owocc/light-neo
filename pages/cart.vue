@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+useSeoMeta({
+  title:"星光灯坊 | 我的购物车"
+})
+</script>
 <template>
   <PageContainer>
     <UiNavbar title="我的购物车" />

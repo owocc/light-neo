@@ -3,7 +3,7 @@
     <UiLoading />
     <NuxtLoadingIndicator />
     <NuxtPage />
-    <UNotifications />
     <CommonScrollToTop />
+    <UNotifications />
   </NuxtLayout>
 </template>

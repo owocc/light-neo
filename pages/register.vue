@@ -16,7 +16,7 @@ const { registerUser } = useAuth()
 const handlerRegister = async (event) => {
   event.preventDefault()
   await registerUser(formData)
-  navigateTo('/')
+  navigateTo('/login')
 }
 </script>
 <template>
