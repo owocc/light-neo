@@ -6,6 +6,13 @@ export const getLampList = async (query) => {
     name: {
       contains: query?.name,
     },
+    categorys: {
+      some: {
+        name: {
+          in: query?.categorys,
+        },
+      },
+    },
   }
   // 查询灯具列表
   const [list] = await Promise.all([
@@ -74,4 +81,16 @@ export const getRecommendLampList = async () => {
     list,
     total: list.length,
   }
+}
+
+// 查询灯具详情
+export const getLampDetail = (id) => {
+  return prisma.lamp.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      categorys: true,
+    },
+  })
 }

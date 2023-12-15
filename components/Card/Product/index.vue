@@ -22,17 +22,23 @@ const props = defineProps({
   },
 })
 
+// 导入工具方法,用于格式化价格和限制文本
 const { formatPrice, limitText } = useUtils()
+
+// 导入导航函数
+const { gotoProductDetail } = useGoto()
+
 </script>
 <template>
   <article :class="productCardClasses">
     <!-- 灯具图片容器 -->
     <div
-      class="bg-base-body h-56 rounded-t-full mb-3 overflow-hidden dark:bg-base-body-dark"
+      @click="gotoProductDetail(props.product.id)"
+      class="bg-base-body h-56 rounded-t-full mb-3 overflow-hidden dark:bg-base-body-dark flex items-center justify-center"
     >
       <img
         :src="props.product.headerImage"
-        class="block w-32 mx-auto -translate-y-2 group-hover:translate-y-0 transition-transform object-contain"
+        class="block w-32 mx-auto object-contain"
       />
     </div>
 
@@ -47,7 +53,7 @@ const { formatPrice, limitText } = useUtils()
         }}</span>
       </div>
       <h3 class="text-2xl dark:text-white">
-        <span class="text-primary">$</span
+        <span class="text-primary mr-1">¥</span
         >{{ formatPrice(props.product.price) }}
       </h3>
     </div>

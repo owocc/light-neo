@@ -7,7 +7,7 @@ const swiper = useSwiper()
 
 // 按钮样式
 const btnClasses = clsx(
-  'inline-flex p-1 rounded-full text-xl text-primary shadow-sm bg-white hover:shadow-md transition-all hover:scale-95'
+  'inline-flex p-1 rounded-full text-xl text-primary  bg-white transition-all hover:scale-95 dark:bg-container-dark border border-transparent hover:border-primary'
 )
 </script>
 <template>
