@@ -20,6 +20,7 @@ defineEmits(['update:modelValue'])
       @input="(event) => $emit('update:modelValue', event.target.value)"
       class="w-full border border-gray-300 dark:border-transparent rounded-md py-2 px-3 focus:outline-none focus:border-primary dark:focus:border-primary"
       autocomplete="off"
+      autocapitalize="off"
     />
   </div>
 </template>

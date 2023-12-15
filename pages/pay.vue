@@ -21,10 +21,13 @@ const handlerSubmit = async (formData) => {
     cartStore.clear()
 
     useToast().add({
-      title: '支付成功,正在为你跳转到订单详情',
+      title: '支付成功,正在为你跳转到我的订单',
       color: 'green',
       timeout: 1500,
     })
+    const router = useRouter()
+    // 跳转到订单详情
+    router.push('/order')
   } catch (e) {}
 }
 </script>

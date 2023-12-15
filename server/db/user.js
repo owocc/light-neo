@@ -53,3 +53,15 @@ export const deductUserMoney = (user, money) => {
     },
   })
 }
+
+// 用户余额充值
+export const rechargeMoney = (user, money) => {
+  return prisma.user.update({
+    where: {
+      id: user.id,
+    },
+    data: {
+      money: parseInt(user.money) + parseInt(money),
+    },
+  })
+}

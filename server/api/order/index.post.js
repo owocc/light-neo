@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
       status: 400,
       statusText: '未登录',
     })
-    sendError(event, error)
+    return sendError(event, error)
   }
 
   // 解析token
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
       status: 400,
       statusText: '该用户不存在',
     })
-    sendError(event, error)
+    return sendError(event, error)
   }
 
   // 从数据库中查询用户信息
@@ -38,9 +38,9 @@ export default defineEventHandler(async (event) => {
   if (user.money < totalPrice) {
     const error = createError({
       status: 400,
-      statusText: '余额不足',
+      statusMessage: '余额不足',
     })
-    sendError(event, error)
+    return sendError(event, error)
   }
 
   // 余额扣除

@@ -7,7 +7,17 @@ export default function () {
     })
   }
 
+  // 充值余额
+  const fetchRecharge = (money) => {
+    return useApiFetch('/user/recharge', {
+      method: 'POST',
+      body: {
+        money,
+      },
+    })
+  }
   return {
     fetchUserInfo,
+    fetchRecharge,
   }
 }

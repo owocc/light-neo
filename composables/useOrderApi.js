@@ -12,7 +12,15 @@ export default function () {
     })
   }
 
+  // 获取订单列表
+  const fetchOrderList = () => {
+    return useApiFetch('/order/list', {
+      method: 'GET',
+    })
+  }
+
   return {
     fetchCreateOrder,
+    fetchOrderList,
   }
 }

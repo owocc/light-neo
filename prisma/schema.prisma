@@ -75,13 +75,13 @@ model OrderItem {
   lampId Int
 
   // 所属订单
-  order   Order? @relation(fields: [orderId], references: [id])
-  orderId Int?
+  order   Order?  @relation(fields: [orderId], references: [id])
+  orderId String?
 }
 
 // 订单
 model Order {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
 
   createAt DateTime @default(now()) //时间
   updateAt DateTime @updatedAt

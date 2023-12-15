@@ -7,7 +7,11 @@ export const getOrderListByUser = (userId) => {
       userId,
     },
     include: {
-      orderItems: true,
+      orderItems: {
+        include: {
+          lamp: true,
+        },
+      },
     },
   })
 }

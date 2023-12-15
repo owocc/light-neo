@@ -47,7 +47,7 @@ const { formatPrice } = useUtils()
         label="订单数量"
         :value="userStore.userInfo?.orderCount || 0"
       />
-      <CardProfileItem label="用户余额" :value="formatPrice(userStore.money)" />
+      <CardProfileItem  label="用户余额" :value="formatPrice(userStore.money)" />
       <CardProfileItem
         label="注册天数"
         :value="userStore.userInfo?.createDay || 0"

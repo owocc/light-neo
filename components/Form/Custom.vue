@@ -7,6 +7,14 @@ const handlerSendCustom = async (event) => {
   event.preventDefault() // 阻止表单默认提交
 
   const { fetchCreateCustom } = useCustomApi()
+  if (mail.value === '') {
+    useToast().add({
+      title: '请填写邮件地址',
+      timeout: 1500,
+      color:'red'
+    })
+    return
+  }
   await fetchCreateCustom(mail.value)
   mail.value = ''
   useToast().add({
