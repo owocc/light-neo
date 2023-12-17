@@ -2,7 +2,7 @@
 import { clsx } from 'clsx'
 
 const productCardClasses = clsx(
-  'relative w-48 bg-container rounded-t-full px-3 pt-3 pb-4 ms-4 transition-all ease-out flex flex-col group',
+  'relative w-48 bg-container rounded-t-full px-3 pt-3 pb-4 ms-4 transition-all ease-out flex flex-col group h-full',
   'dark:bg-container-dark ',
   'outline-offset-2 outline outline-transparent ',
   'cursor-pointer hover:shadow-primary/5 hover:shadow-xl',

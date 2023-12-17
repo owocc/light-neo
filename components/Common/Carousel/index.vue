@@ -24,7 +24,7 @@ const props = defineProps({
     }"
   >
     <!-- 轮播图元素,将卡片再次封装 -->
-    <SwiperSlide class="!w-auto" v-for="lamp in lamps" :key="lamp.id">
+    <SwiperSlide class="!w-auto h-full flex" v-for="lamp in lamps" :key="lamp.id">
       <CardProduct :product="lamp" />
     </SwiperSlide>
 

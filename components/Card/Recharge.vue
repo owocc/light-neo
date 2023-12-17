@@ -12,7 +12,7 @@ const { formatPrice } = useUtils()
     class="flex items-center p-4 bg-container rounded-lg shadow-xs dark:bg-container-dark shadow-lg outline outline-transparent active:outline-primary cursor-pointer transition-all active:scale-95"
   >
     <div
-      class="p-3 mr-4 text-white rounded-full dark:text-orange-100 dark:bg-green-500 inline-flex"
+      class="p-3 mr-4 text-white rounded-full dark:text-orange-100 bg-green-500 inline-flex"
     >
       <Icon name="i-carbon-logo-wechat" class="text-2xl" />
     </div>

@@ -9,11 +9,22 @@ const props = defineProps({
 const { formatPrice } = useUtils()
 
 const { add } = useCartStore()
+
+const back = () => {
+  useRouter().back()
+}
 </script>
 <template>
   <div
     class="w-full max-w-6xl rounded bg-container dark:bg-container-dark shadow-xl p-10 lg:p-20 mx-auto text-gray-800 dark:text-white relative md:text-left"
   >
+    <button
+      @click="back"
+      class="p-2 absolute left-5 top-5 flex items-center justify-center rounded-md bg-container dark:bg-container-dark transition-all active:scale-95 hover:shadow-lg hover:outline hover:outline-primary"
+    >
+      <Icon name="carbon:chevron-left" class="text-2xl" />
+    </button>
+
     <div class="md:flex items-center -mx-10 md:h-full">
       <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
         <!-- 轮播图 -->

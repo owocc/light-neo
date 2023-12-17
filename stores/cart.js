@@ -51,6 +51,7 @@ export const useCartStore = defineStore('cart', {
     },
     clear() {
       this.carts = []
+      useCookie('user').value = null
     },
   },
 })

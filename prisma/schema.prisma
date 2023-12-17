@@ -28,7 +28,7 @@ model Lamp {
   id          Int     @id @default(autoincrement())
   name        String // 名称
   price       Decimal // 价格
-  headerImage String // 头图
+  headerImage String  @db.LongText // 头图
   images      Json    @default("[]") // 灯具图片,默认空数组
   desc        String? // 灯具描述
   detail      String? //灯具详细信息,富文本

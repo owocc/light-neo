@@ -4,7 +4,7 @@ import { Observer } from 'gsap/Observer'
 export default function (height) {
   gsap.registerPlugin(Observer)
 
-  const state = useState('scrollState', () => false)
+  const state = ref(false)
 
   onMounted(() => {
     if (process.client) {

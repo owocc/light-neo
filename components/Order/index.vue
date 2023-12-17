@@ -5,13 +5,16 @@ const props = defineProps({
     required: true,
   },
 })
+//计算总金额
 const orderTotal = computed(() => {
   return props.order.orderItems.reduce((total, item) => {
     return parseInt(total) + parseInt(item.totalPrice) * item.quantity
   }, 0)
 })
-const { formatPrice } = useUtils()
+const { formatPrice,formatTime } = useUtils()
 const { gotoProductDetail } = useGoto()
+
+
 </script>
 <template>
   <div
@@ -22,12 +25,12 @@ const { gotoProductDetail } = useGoto()
     >
       <div class="space-y-2">
         <h1>订单号: {{ props.order.id }}</h1>
-        <h1>购买时间: {{ props.order.createAt }}</h1>
+        <h2 class="text-gray-500 font-medium">购买时间: {{ formatTime(props.order.createAt) }}</h2>
       </div>
       <h2>
         订单总金额:
         <span class="text-primary text-2xl"
-          >¥{{ formatPrice(orderTotal) }}</span
+          >¥ {{ formatPrice(orderTotal) }}</span
         >
       </h2>
     </div>
@@ -46,7 +49,9 @@ const { gotoProductDetail } = useGoto()
           </div>
         </div>
         <div class="flex flex-col justify-between text-right">
-          <div class="text-lg text-primary">￥{{ formatPrice(orderItem.lamp.price) }}</div>
+          <div class="text-lg text-primary">
+            ￥{{ formatPrice(orderItem.lamp.price) }}
+          </div>
           <div class="text-sm">x {{ orderItem.quantity }}</div>
         </div>
       </div>
