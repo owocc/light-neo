@@ -15,17 +15,12 @@ const props = defineProps({
 })
 </script>
 <template>
-  <Swiper
-    class="w-full !pb-16"
-    slides-per-view="1"
-    loop
-    space-between="20px"
-  >
+  <Swiper class="w-full !pb-16" slides-per-view="1" loop space-between="20px">
     <SwiperSlide>
       <CardProductHeaderImg :image="props.lamp.headerImage" />
     </SwiperSlide>
-    <SwiperSlide v-for="image in props.lamp.images">
-      <img :src="image" class="h-full w-full rounded-md" />
+    <SwiperSlide v-for="image in props.lamp.images" class="items-center justify-center flex ">
+      <img :src="image" class="!h-96 !w-96 object-cover rounded-md" />
     </SwiperSlide>
     <!-- 轮播图操作按钮 -->
     <template #container-end>

@@ -47,10 +47,10 @@ const { add } = useCartStore()
     <div class="flex-1 flex flex-col justify-between">
       <div>
         <h3 class="font-medium mb-1 dark:text-white">
-          {{ props.product.name }}
+          {{ limitText(props.product.name, 15) }}
         </h3>
         <span class="block text-sm font-medium mb-4">{{
-          limitText(props.product.desc, 25)
+          limitText(props.product.desc, 20)
         }}</span>
       </div>
       <h3 class="text-2xl dark:text-white">
